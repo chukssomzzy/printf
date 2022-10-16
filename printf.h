@@ -17,7 +17,7 @@
 
 struct printf_fmt
 {
-	char *fmt_f;
+	char *fmt_s;
 	void (*fun_f)(va_list);
 };
 /**
@@ -27,4 +27,8 @@ struct printf_fmt
 typedef struct printf_fmt printf_fmt_t;
 int _putchar(const char);
 int _printf(const char *format, ...);
+void print_char(va_list);
+void print_string(va_list);
+void (*get_fmt_fun(const char * const fmt))(va_list);
+
 # endif
