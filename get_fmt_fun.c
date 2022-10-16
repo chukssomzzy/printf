@@ -1,4 +1,4 @@
-# include "printf.h"
+# include "_printf.h"
 # include <stdarg.h>
 
 /**
@@ -8,18 +8,18 @@
  * Return: pointer function or null
  */
 
-void (*get_fmt_fun(const char * const fmt))(va_list)
+int (*get_fmt_fun(const char * const fmt))(va_list)
 {
 	unsigned int i;
 	printf_fmt_t fmt_fun[] = {
 		{"c", print_char},
 		{"s", print_string},
-		{NULL, NULL}
 	};
+	unsigned int sz = sizeof(fmt_fun) / sizeof(printf_fmt_t);
 
 	i = 0;
-	while (*(fmt_fun + i)->fun_f)
+	while (i < sz)
 		if (*(fmt_fun + i++)->fmt_s == *fmt)
-			return ((*(fmt_fun + i + 1)).fun_f);
+			return ((*(fmt_fun + i - 1)).fun_f);
 	return (NULL);
 }
