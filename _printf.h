@@ -8,7 +8,7 @@
 # endif
 # include <stdarg.h>
 /*
- * printf_fmt - holds format string and function
+ * struct printf_fmt - holds format string and function
  * @fmt_f: character string holding the format
  * @fun_f: holds format functions
  *
@@ -28,5 +28,7 @@ int print_string(va_list);
 int (*get_fmt_fun(const char * const fmt))(va_list);
 int write_string(const char * const, const unsigned int);
 int _string_len(const char * const s);
+int printf_int(va_list);
+int printf_dec(va_list);
 
 # endif
