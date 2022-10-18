@@ -1,5 +1,6 @@
 # include <unistd.h>
 # include "main.h"
+
 /**
  * _putchar - prints a char
  * @c: character to print to stdout
@@ -18,5 +19,5 @@
 
 int _putchar(const char c)
 {
-	return (write(stdout, &c, 1));
+	return (write(std_out, &c, 1));
 }

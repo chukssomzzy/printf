@@ -16,9 +16,11 @@ int print_string(va_list ap)
 	char *es = "(null)";
 
 	s = va_arg(ap, char *);
-	c = _string_len(s);
 	if (s)
+	{
+		c = _string_len(s);
 		return (write_string(s, c));
+	}
 	c = _string_len(es);
 	return (write_string(es, c));
 }

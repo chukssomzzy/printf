@@ -3,8 +3,14 @@
 # ifndef NULL
 # define NULL ((void *)0)
 # endif
-# ifndef stdout
-# define stdout 1
+# ifndef BASE10
+# define BASE10 10
+# endif
+# ifndef BASE2
+# define BASE2 2
+# endif
+# ifndef std_out
+# define std_out 1
 # endif
 # include <stdarg.h>
 /**
@@ -30,5 +36,7 @@ int write_string(const char * const, const unsigned int);
 int _string_len(const char * const s);
 int printf_int(va_list);
 int printf_dec(va_list);
+int get_digits(unsigned int, unsigned int);
+int print_bin(va_list);
 
 # endif

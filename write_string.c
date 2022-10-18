@@ -12,6 +12,6 @@
 int write_string(const char * const s, const unsigned int c)
 {
 	if (*s && c)
-		return (write(stdout, s, c));
+		return (write(std_out, s, c));
 	return (0);
 }
