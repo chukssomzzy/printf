@@ -17,6 +17,10 @@ int _printf(const char *fmt, ...)
 	va_start(ap, fmt);
 	i = 0;
 	cnt = 0;
+	if (!fmt || (*(fmt + i) == '%' && !*(fmt + i + 1)))
+		return (-1);
+	if (!(*(fmt + i)))
+		return (0);
 	while (*(fmt + i))
 	{
 		if (*(fmt + i) == '%')
