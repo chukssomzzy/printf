@@ -21,12 +21,15 @@ int print_bin(va_list ap)
 	i = (get_digits(n, BASE2));
 	c = i;
 	s = malloc(sizeof(*s) * (i + 1));
+	if (!s)
+		return (0);
 	*(s + i--) = '\0';
 	do {
 		ch = (n % BASE2) + '0';
 		*(s + i--) = ch;
 	} while ((n /= BASE2) > 0);
 	c = write_string(s, c);
+	free(s);
 	return (c);
 }
 

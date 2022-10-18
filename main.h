@@ -15,7 +15,7 @@
 # include <stdarg.h>
 /**
  * struct printf_fmt - holds format string and function
- * @fmt_f: character string holding the format
+ * @fmt_s: character string holding the format
  * @fun_f: holds format functions
  *
  * Description: datastructure for printf
