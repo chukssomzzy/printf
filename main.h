@@ -9,6 +9,9 @@
 # ifndef BASE2
 # define BASE2 2
 # endif
+# ifndef BASE16
+# define BASE16 16
+# endif
 # ifndef std_out
 # define std_out 1
 # endif
@@ -38,5 +41,7 @@ int printf_int(va_list);
 int printf_dec(va_list);
 int get_digits(unsigned int, unsigned int);
 int print_bin(va_list);
-
+char hex_digit(int v);
+int  print_addr(va_list);
+char *convert(unsigned long int, int, int);
 # endif
