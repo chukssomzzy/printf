@@ -1,33 +1,34 @@
-#ifndef MAIN_H
-#define MAIN_H
-
-#include <stdarg.h>
-
-int _putchar(char c);
-int print_int(va_list arg);
-int print_unsigned(va_list arg);
-int _printf(const char *format, ...);
-int print_char(va_list arg);
-int print_str(va_list arg);
-int print_percent(void);
-void print_binary(unsigned int n, unsigned int *printed);
-int print_unsignedToBinary(va_list arg);
-int print_oct(va_list arg);
-int print_unsignedIntToHex(unsigned int num, char _case);
-int print_hex_base(va_list arg, char _case);
-int print_hex(va_list arg);
-int print_HEX(va_list arg);
-int print_STR(va_list arg);
-
+# ifndef _PRINTF_H_
+# define _PRINTF_H_
+# ifndef NULL
+# define NULL ((void *)0)
+# endif
+# ifndef stdout
+# define stdout 1
+# endif
+# include <stdarg.h>
 /**
- * struct identifierStruct - structure definition of a printTypeStruct
- * @indentifier: type
- * @printer: function to print
+ * struct printf_fmt - holds format string and function
+ * @fmt_f: character string holding the format
+ * @fun_f: holds format functions
+ *
+ * Description: datastructure for printf
  */
-typedef struct identifierStruct
-{
-char *indentifier;
-int (*printer)(va_list);
-} identifierStruct;
 
-#endif
+typedef struct printf_fmt
+{
+	char *fmt_s;
+	int (*fun_f)(va_list);
+} printf_fmt_t;
+
+int _putchar(const char);
+int _printf(const char *, ...);
+int print_char(va_list);
+int print_string(va_list);
+int (*get_fmt_fun(const char * const fmt))(va_list);
+int write_string(const char * const, const unsigned int);
+int _string_len(const char * const s);
+int printf_int(va_list);
+int printf_dec(va_list);
+
+# endif
