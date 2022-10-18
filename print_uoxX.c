@@ -18,7 +18,7 @@ int print_u(va_list ap)
 	if (!uint)
 		return (write_string("(nil)", 5));
 	s = convert(uint, 10, 1);
-	cnt  = write_string(s, _string_len(s));
+	cnt  += write_string(s, _string_len(s));
 	return (cnt);
 }
 
@@ -36,8 +36,10 @@ int print_x(va_list ap)
 
 	if (!uint)
 		return (write_string("(nil)", 5));
+	cnt += _putchar('0');
+	cnt += _putchar('x');
 	s = convert(uint, 16, 1);
-	cnt  = write_string(s, _string_len(s));
+	cnt  += write_string(s, _string_len(s));
 	return (cnt);
 }
 
@@ -57,7 +59,31 @@ int print_X(va_list ap)
 
 	if (!uint)
 		return (write_string("(nil)", 5));
+	cnt += _putchar('0');
+	cnt += _putchar('X');
 	s = convert(uint, 16, 0);
-	cnt  = write_string(s, _string_len(s));
+	cnt  += write_string(s, _string_len(s));
+	return (cnt);
+}
+
+/**
+ * print_0 - print in hexadecimals
+ * @ap: arguments pointer
+ *
+ * Return: cnt
+ */
+
+
+int print_X(va_list ap)
+{
+	int cnt = 0;
+	unsigned int uint = va_arg(ap, unsigned int);
+	char *s;
+
+	if (!uint)
+		return (write_string("(nil)", 5));
+	cnt += _putchar('0');
+	s = convert(uint, 10, 0);
+	cnt  += write_string(s, _string_len(s));
 	return (cnt);
 }
