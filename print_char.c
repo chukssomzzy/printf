@@ -11,9 +11,11 @@
 int print_char(va_list ap)
 {
 	char c;
+	char *es = "(null)";
 
 	c = va_arg(ap, int);
 	if (c)
 		return (_putchar(c));
-	return (0);
+	c = _string_len(es);
+	return (write_string(es, c));
 }

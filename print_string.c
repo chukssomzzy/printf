@@ -13,10 +13,12 @@ int print_string(va_list ap)
 {
 	char *s;
 	unsigned int c;
+	char *es = "(null)";
 
 	s = va_arg(ap, char *);
 	c = _string_len(s);
 	if (s)
 		return (write_string(s, c));
-	return (0);
+	c = _string_len(es);
+	return (write_string(es, c));
 }
