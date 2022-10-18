@@ -22,12 +22,11 @@ int _printf(const char *fmt, ...)
 		if (*(fmt + i) == '%')
 		{
 			if (*(fmt + i + 1) == '%' || *(fmt + i - 1) == '\\')
-			{
-				cnt += _putchar(*(fmt + i));
 				cnt += _putchar(*(fmt + ++i));
-			}
 			else if (get_fmt_fun(fmt + i + 1))
 				cnt += get_fmt_fun((fmt + ++i))(ap);
+			else
+				cnt += _putchar(*(fmt + i));
 		}
 		else
 			cnt += _putchar(*(fmt + i));
