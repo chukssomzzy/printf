@@ -44,4 +44,5 @@ int print_bin(va_list);
 char hex_digit(int v);
 int  print_addr(va_list);
 char *convert(unsigned long int, int, int);
+int  print_u(va_list);
 # endif
