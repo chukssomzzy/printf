@@ -18,7 +18,9 @@ int (*get_fmt_fun(const char * const fmt))(va_list)
 		{"i", printf_int},
 		{"b", print_bin},
 		{"p", print_addr},
-		{"u", print_u}
+		{"u", print_u},
+		{"x", print_x},
+		{"X", print_X}
 	};
 	unsigned int sz = sizeof(fmt_fun) / sizeof(printf_fmt_t);
 

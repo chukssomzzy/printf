@@ -45,4 +45,7 @@ char hex_digit(int v);
 int  print_addr(va_list);
 char *convert(unsigned long int, int, int);
 int  print_u(va_list);
+int print_x(va_list);
+int print_X(va_list);
+
 # endif
