@@ -4,7 +4,7 @@
 /**
  * get_flags - get flags passed to printf and pass them to a struct
  * @fmt: pointer to format string
- * @is_fg: determines if we have hit a conversion
+ * @cnt: determines if we have hit a conversion
  * @i: index of fmt
  * @ap: argument pointer
  * @flag: flag struct
@@ -12,9 +12,9 @@
  * Return: true or false
  */
 
-int get_flags(va_list ap, char *fmt, int *is_fg, int *i, flag_input_t *flag)
+int get_flags(va_list ap, const char *fmt, unsigned long
+		int *cnt, int *i, flag_input_t *flag)
 {
-	int cnt = 0;
 
 	do {
 		switch (*fmt)
@@ -38,8 +38,8 @@ int get_flags(va_list ap, char *fmt, int *is_fg, int *i, flag_input_t *flag)
 				*i += 1;
 				return (0);
 		}
-	} while (get_flags(ap, fmt++, is_fg, i, flag));
+	} while (get_flags(ap, fmt++, cnt, i, flag));
 	if (get_fmt_fun(fmt))
-		cnt = get_fmt_fun(fmt)(ap, flag);
-	return (cnt);
+		*cnt += get_fmt_fun(fmt)(ap, flag);
+	return (*cnt);
 }

@@ -4,7 +4,7 @@
  * @args: argument to print
  * Return: number of characters printed
  */
-int printf_int(va_list args)
+int printf_int(va_list args, flag_input_t *flg)
 {
 	int n = va_arg(args, int);
 	int num, last = n % 10, digit, exp = 1;
@@ -45,11 +45,12 @@ int printf_int(va_list args)
 
 /**
  * printf_dec - prints decimal
- * @args: argument to print
+ * @args: argument to pointer
+ * @flg: flags
  * Return: number of characters printed
  */
 
-int printf_dec(va_list args)
+int printf_dec(va_list args, flag_input_t *flg)
 {
 	int n = va_arg(args, int);
 	int num, last = n % 10, digit;
