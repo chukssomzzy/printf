@@ -62,8 +62,7 @@ int  print_u(va_list, flag_input_t *);
 int print_x(va_list, flag_input_t *);
 int print_X(va_list, flag_input_t *);
 int print_o(va_list, flag_input_t *);
-int get_flags(va_list, const char *, unsigned long int *, int *,
-		flag_input_t *);
+int get_flags(va_list, const char *, unsigned long int *, int *);
 
 
 # endif

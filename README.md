@@ -16,7 +16,6 @@ determined by a null string terminating character `\0`.
 | [printf.h](./printf.h)   | <Mark>printf</Mark> | Holds the datastructures and type defination for `_printf` |
 | [_printf.c](./_printf.c) | <Mark>printf</Mark> | Print formated string to stdout |
 
-
 ## Function Prototypes
 
 | **Prototype** | **file src** | Description |
@@ -28,8 +27,9 @@ determined by a null string terminating character `\0`.
 - [x] Setup template for starting project
 - [x] Write prototypes for required functions
 - [x] Add `_putchar` function and prototype
-- [ ] Add `_printf` that would be the control or main function
+- [x] Add `_printf` that would be the control or main function
 - [ ] Write function and prototype to format string with format `s`
+    Plug 'ashisha/image.vim'
 - [ ] Write function and prototype to format char `c`
 - [ ] write function and protype to format `%`
 

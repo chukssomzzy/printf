@@ -13,7 +13,6 @@ int _printf(const char *fmt, ...)
 	va_list ap;
 	int i;
 	unsigned long int cnt;
-	flag_input_t *flgs = {0};
 
 	va_start(ap, fmt);
 	i = 0;
@@ -28,7 +27,7 @@ int _printf(const char *fmt, ...)
 		{
 			if (*(fmt + i + 1) == '%' || *(fmt + i - 1) == '\\')
 				cnt += _putchar(*(fmt + ++i));
-			else if ((get_flags(ap, (fmt + i + 1), &cnt, &i, flgs)))
+			else if ((get_flags(ap, (fmt + i + 1), &cnt, &i)))
 				;
 			else
 				cnt += _putchar(*(fmt + i));

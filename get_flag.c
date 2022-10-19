@@ -1,4 +1,5 @@
 # include "main.h"
+# include <stdlib.h>
 
 
 /**
@@ -7,33 +8,37 @@
  * @cnt: determines if we have hit a conversion
  * @i: index of fmt
  * @ap: argument pointer
- * @flag: flag struct
  *
  * Return: true or false
  */
 
 int get_flags(va_list ap, const char *fmt, unsigned long
-		int *cnt, int *i, flag_input_t *flag)
+		int *cnt, int *i)
 {
 	int j = 0;
+	int k = 0;
+	flag_input_t *flag = malloc(sizeof(flag_input_t));
 
 	do {
-		switch (*(fmt + j))
+		switch (*(fmt + k))
 		{
 			case '#':
 				if (!flag->flag_hash)
 					flag->flag_hash = 1;
 				*i += 1;
+				k++;
 				break;
 			case ' ':
 				if (!flag->flag_space)
 					flag->flag_space = 1;
 				*i += 1;
+				k++;
 				break;
 			case '+':
 				if (!flag->flag_plus)
 					flag->flag_plus = 1;
 				*i += 1;
+				k++;
 				break;
 			default:
 				break;
@@ -44,7 +49,8 @@ int get_flags(va_list ap, const char *fmt, unsigned long
 	if (get_fmt_fun(fmt))
 	{
 		*i += 1;
-		return (*cnt += get_fmt_fun(fmt)(ap, flag));
+		*cnt += get_fmt_fun(fmt)(ap, flag);
+		return (*cnt);
 	}
 
 	return (0);
