@@ -28,7 +28,7 @@ int _printf(const char *fmt, ...)
 		{
 			if (*(fmt + i + 1) == '%' || *(fmt + i - 1) == '\\')
 				cnt += _putchar(*(fmt + ++i));
-			else if ((get_flags(ap, fmt, &cnt, &i, flgs)))
+			else if ((get_flags(ap, (fmt + i + 1), &cnt, &i, flgs)))
 				;
 			else
 				cnt += _putchar(*(fmt + i));
