@@ -4,7 +4,7 @@
 /**
  * print_u - print number as an unsigned int
  * @ap: argument pointer
- *
+ * @flag: flag
  * Return: count
  */
 
@@ -15,7 +15,7 @@ int print_u(va_list ap, flag_input_t *flag)
 	unsigned int uint = va_arg(ap, unsigned int);
 	char *s;
 
-	if (!uint)
+	if (!uint && flag)
 		return (write_string("(nil)", 5));
 	s = convert(uint, 10, 1);
 	cnt  += write_string(s, _string_len(s));
@@ -25,6 +25,7 @@ int print_u(va_list ap, flag_input_t *flag)
 /**
  * print_x - print  in hexadecimals
  * @ap: argument pointer
+ * @flag: struct
  *
  * Return: count
  */
@@ -36,8 +37,11 @@ int print_x(va_list ap, flag_input_t *flag)
 
 	if (!uint)
 		return (write_string("(nil)", 5));
+	if ((*flag).flag_hash)
+	{
 	cnt += _putchar('0');
 	cnt += _putchar('x');
+	}
 	s = convert(uint, 16, 1);
 	cnt  += write_string(s, _string_len(s));
 	return (cnt);
@@ -46,6 +50,7 @@ int print_x(va_list ap, flag_input_t *flag)
 /**
  * print_X - print in hexadecimals
  * @ap: arguments pointer
+ * @flag: struct
  *
  * Return: cnt
  */
@@ -59,8 +64,11 @@ int print_X(va_list ap, flag_input_t *flag)
 
 	if (!uint)
 		return (write_string("(nil)", 5));
-	cnt += _putchar('0');
-	cnt += _putchar('X');
+	if ((*flag).flag_hash)
+	{
+		cnt += _putchar('0');
+		cnt += _putchar('X');
+	}
 	s = convert(uint, 16, 0);
 	cnt  += write_string(s, _string_len(s));
 	return (cnt);
@@ -69,6 +77,7 @@ int print_X(va_list ap, flag_input_t *flag)
 /**
  * print_o - print in hexadecimals
  * @ap: arguments pointer
+ * @flag: struct
  *
  * Return: cnt
  */
@@ -82,8 +91,9 @@ int print_o(va_list ap, flag_input_t *flag)
 
 	if (!uint)
 		return (write_string("(nil)", 5));
-	cnt += _putchar('0');
-	s = convert(uint, 10, 0);
+	if ((*flag).flag_hash)
+		cnt += _putchar('0');
+	s = convert(uint, 8, 0);
 	cnt  += write_string(s, _string_len(s));
 	return (cnt);
 }

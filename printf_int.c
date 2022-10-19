@@ -2,6 +2,7 @@
 /**
  * printf_int - prints integer
  * @args: argument to print
+ * @flg: flags
  * Return: number of characters printed
  */
 int printf_int(va_list args, flag_input_t *flg)
@@ -20,7 +21,10 @@ int printf_int(va_list args, flag_input_t *flg)
 		n = -n;
 		last = -last;
 		i++;
-	}
+	}  else if (last >= 0 && (*flg).flag_plus)
+		_putchar('+'), i++;
+	else if (last >= 0 && !(*flg).flag_plus && (*flg).flag_space)
+		_putchar(' '), i++;
 	if (num > 0)
 	{
 		while (num / 10 != 0)
@@ -67,7 +71,10 @@ int printf_dec(va_list args, flag_input_t *flg)
 		n = -n;
 		last = -last;
 		i++;
-	}
+	} else if (last >= 0 && (*flg).flag_plus)
+		_putchar('+'), i++;
+	else if (last >= 0 && !(*flg).flag_plus && (*flg).flag_space)
+		_putchar(' '), i++;
 	if (num > 0)
 	{
 		while (num / 10 != 0)

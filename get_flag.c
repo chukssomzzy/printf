@@ -23,7 +23,7 @@ int get_flags(va_list ap, const char *fmt, unsigned long
 		switch (*(fmt + k))
 		{
 			case '#':
-				if (!flag->flag_hash)
+				if (!(flag->flag_hash))
 					flag->flag_hash = 1;
 				*i += 1;
 				k++;
@@ -46,10 +46,10 @@ int get_flags(va_list ap, const char *fmt, unsigned long
 		j++;
 	} while (j < 3);
 
-	if (get_fmt_fun(fmt))
+	if (get_fmt_fun(fmt + k))
 	{
 		*i += 1;
-		*cnt += get_fmt_fun(fmt)(ap, flag);
+		*cnt += get_fmt_fun(fmt + k)(ap, flag);
 		return (*cnt);
 	}
 

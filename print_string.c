@@ -5,7 +5,7 @@
 /**
  * print_string - print string from argument pointer
  * @ap: holds variable argument pointer value
- *
+ * @flag: flag
  * Return: number of character written
  */
 
@@ -16,7 +16,7 @@ int print_string(va_list ap, flag_input_t *flag)
 	char *es = "(null)";
 
 	s = va_arg(ap, char *);
-	if (s)
+	if (s && flag)
 	{
 		c = _string_len(s);
 		return (write_string(s, c));

@@ -4,7 +4,7 @@
 /**
  * print_addr - print memory address
  * @ap: argument pointer variable
- *
+ * @flg: flags
  * Return: number of char
  */
 
@@ -15,7 +15,7 @@ int print_addr(va_list ap, flag_input_t *flg)
 	unsigned long int p =  va_arg(ap, unsigned long int);
 	char *s;
 
-	if (!p)
+	if (!p && flg)
 		return (write_string("(nil)", 4));
 	cnt += _putchar('0');
 	cnt += _putchar('x');
