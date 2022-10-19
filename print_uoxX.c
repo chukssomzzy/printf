@@ -9,7 +9,7 @@
  */
 
 
-int print_u(va_list ap)
+int print_u(va_list ap, flag_input_t *flag)
 {
 	int cnt = 0;
 	unsigned int uint = va_arg(ap, unsigned int);
@@ -28,7 +28,7 @@ int print_u(va_list ap)
  *
  * Return: count
  */
-int print_x(va_list ap)
+int print_x(va_list ap, flag_input_t *flag)
 {
 	int cnt = 0;
 	unsigned int uint = va_arg(ap, unsigned int);
@@ -51,7 +51,7 @@ int print_x(va_list ap)
  */
 
 
-int print_X(va_list ap)
+int print_X(va_list ap, flag_input_t *flag)
 {
 	int cnt = 0;
 	unsigned int uint = va_arg(ap, unsigned int);
@@ -74,7 +74,7 @@ int print_X(va_list ap)
  */
 
 
-int print_o(va_list ap)
+int print_o(va_list ap, flag_input_t *flag)
 {
 	int cnt = 0;
 	unsigned int uint = va_arg(ap, unsigned int);

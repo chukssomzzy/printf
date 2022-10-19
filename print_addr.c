@@ -9,7 +9,7 @@
  */
 
 
-int print_addr(va_list ap, flag_input_t flg)
+int print_addr(va_list ap, flag_input_t *flg)
 {
 	int i, cnt = 0;
 	unsigned long int p =  va_arg(ap, unsigned long int);

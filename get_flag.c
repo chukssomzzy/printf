@@ -40,6 +40,6 @@ int get_flags(va_list ap, char *fmt, int *is_fg, int *i, flag_input_t *flag)
 		}
 	} while (get_flags(ap, fmt++, is_fg, i, flag));
 	if (get_fmt_fun(fmt))
-		cnt = get_fmt_fun(fmt)(ap, *flag);
+		cnt = get_fmt_fun(fmt)(ap, flag);
 	return (cnt);
 }

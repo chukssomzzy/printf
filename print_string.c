@@ -9,7 +9,7 @@
  * Return: number of character written
  */
 
-int print_string(va_list ap)
+int print_string(va_list ap, flag_input_t *flag)
 {
 	char *s;
 	unsigned int c;

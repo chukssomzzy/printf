@@ -10,7 +10,7 @@
  */
 
 
-int print_bin(va_list ap)
+int print_bin(va_list ap, flag_input_t *flg)
 {
 	unsigned int i;
 	int n, c;

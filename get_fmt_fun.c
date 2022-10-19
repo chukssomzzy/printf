@@ -8,7 +8,7 @@
  * Return: pointer function or null
  */
 
-int (*get_fmt_fun(const char * const fmt))(va_list, flag_input_t)
+int (*get_fmt_fun(const char * const fmt))(va_list, flag_input_t *)
 {
 	unsigned int i;
 	printf_fmt_t fmt_fun[] = {

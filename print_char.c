@@ -8,7 +8,7 @@
  * Return: (0);
  */
 
-int print_char(va_list ap)
+int print_char(va_list ap, flag_input_t *flg)
 {
 	char c;
 	char *es = "(null)";
