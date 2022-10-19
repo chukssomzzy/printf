@@ -13,6 +13,8 @@ int _printf(const char *fmt, ...)
 	va_list ap;
 	int i;
 	unsigned long int cnt;
+	flag_input_t *flgs;
+    int is_fg = 0;
 
 	va_start(ap, fmt);
 	i = 0;

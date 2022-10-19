@@ -67,14 +67,14 @@ int print_X(va_list ap)
 }
 
 /**
- * print_0 - print in hexadecimals
+ * print_o - print in hexadecimals
  * @ap: arguments pointer
  *
  * Return: cnt
  */
 
 
-int print_X(va_list ap)
+int print_o(va_list ap)
 {
 	int cnt = 0;
 	unsigned int uint = va_arg(ap, unsigned int);
